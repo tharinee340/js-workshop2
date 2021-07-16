@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <form action="form.html" method="post" name="myForm" onsubmit="return formValid();">
+        <div id="container">
+            <h3>Register  form</h1>
+                <table>
+                    <tr>
+                        <td id="fname">
+                            <input type="text" name="fname" placeholder="First Name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="lname">
+                            <input type="text" name="lname" placeholder="Last Name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="uid">
+                            <input type="text" name="uid" placeholder="Username" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="pass">
+                            <input type="password" name="pass" placeholder="Password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="cpass">
+                            <input type="password" name="cpass" placeholder="Confirm Password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="email">
+                            <input type="text" name="email" placeholder="Email" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn" id="btnRegister">
+                    <input type="submit" name="btnRegister" value="Register" class="each-btn" />
+                </div>
+        </div>
+    </form>
+    <script>
+        function formValid() {
+            var fname = document.getElementsByName("fname")[0].value;
+            var lname = document.getElementsByName("lname")[0].value;
+            var uid = document.getElementsByName("uid")[0].value;
+            var pass = document.getElementsByName("pass")[0].value;
+            var cpass = document.getElementsByName("cpass")[0].value;
+            var email = document.getElementsByName("email")[0].value;
+
+            if ((fname == null || fname == "") && (lname == null || lname == "")) {
+                alert("Enter Your name ");
+                return false;
+            }
+
+            if (uid == null || uid == "") {
+                alert("Enter your username");
+                return false;
+            }
+            if ((pass == null || pass == "") && (cpass == null || cpass == "")) {
+                alert("Enter password");
+                return false;
+            }
+            if (pass != cpass) {
+                alert("Password doesnt match");
+                return false;
+            }
+            if (email == null || email == "") {
+                alert("Enter your email number");
+                return false;
+            }
+
+            alert("Form Validated Successfully! Submitting Details...");
+            document.getElementById("fname").innerHTML = "First Name : "+fname;
+            document.getElementById("lname").innerHTML = "Last Name : "+lname;
+            document.getElementById("uid").innerHTML = "Username : "+uid;
+            document.getElementById("pass").innerHTML = "Password : "+pass;
+            document.getElementById("email").innerHTML = "Email : "+email;
+            document.getElementById("btnRegister").innerHTML = "";
+
+            return false; // Make this return true to submit form
+            
+        }
+    </script>
+</body>
+
+</html>
